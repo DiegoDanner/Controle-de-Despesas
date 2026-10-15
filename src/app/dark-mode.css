@@ -1,0 +1,208 @@
+.login-shell {
+  position: relative;
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+}
+
+.login-theme-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #edf2f8;
+  --muted: #a3afc0;
+  --line: #2e3a4b;
+  --surface: #18212d;
+  --bg: #101720;
+  --purple: #8b83ff;
+  --green: #58d5aa;
+  --red: #ff778d;
+  --navy: #26364d;
+}
+
+html[data-theme="dark"] .topbar,
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .searchbar,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .login-card,
+html[data-theme="dark"] .modal {
+  color: var(--ink);
+  background-color: var(--surface);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .secondary,
+html[data-theme="dark"] .search-input,
+html[data-theme="dark"] .filters {
+  color: var(--ink);
+  background-color: #222d3b;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .secondary:hover {
+  background-color: #2b3849;
+}
+
+html[data-theme="dark"] .filters button {
+  color: #c3cede;
+}
+
+html[data-theme="dark"] .filters button.active {
+  color: var(--green);
+  background-color: #344253;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .icon-button,
+html[data-theme="dark"] .row-actions button {
+  color: #aab6c8;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border: 1px solid var(--line);
+  width: 36px;
+  height: 36px;
+}
+
+html[data-theme="dark"] table th,
+html[data-theme="dark"] table td {
+  border-color: #303d4e;
+}
+
+html[data-theme="dark"] tbody td,
+html[data-theme="dark"] .expenses-table .description {
+  color: #d5deea;
+}
+
+html[data-theme="dark"] .expenses-table .details,
+html[data-theme="dark"] .search-input,
+html[data-theme="dark"] .search-input input::placeholder {
+  color: #a3afc0;
+}
+
+html[data-theme="dark"] tbody tr:nth-child(even) {
+  background-color: #1c2633;
+}
+
+html[data-theme="dark"] tbody tr:hover {
+  background-color: #243141;
+}
+
+html[data-theme="dark"] .expenses-table tfoot td,
+html[data-theme="dark"] .history-table tfoot td {
+  color: #dce5f0;
+  background-color: #222e3c;
+}
+
+html[data-theme="dark"] .history-table thead th {
+  background-color: #17634d;
+}
+
+html[data-theme="dark"] .history-table tfoot td {
+  color: #8ce5c5;
+  background-color: #19372f;
+}
+
+html[data-theme="dark"] .paid-toggle {
+  color: #b4bfd0;
+  background-color: #263344;
+  border-color: #405066;
+}
+
+html[data-theme="dark"] .paid-toggle.checked {
+  color: #10221c;
+  background-color: #58d5aa;
+  border-color: #58d5aa;
+}
+
+html[data-theme="dark"] .paid-toggle span {
+  background-color: #a3afc0;
+}
+
+html[data-theme="dark"] .stat-icon.purple {
+  color: #aaa4ff;
+  background-color: #302d52;
+  border-color: #49437c;
+}
+
+html[data-theme="dark"] .stat-icon.green {
+  color: #69dfb8;
+  background-color: #1d3b35;
+  border-color: #2e5c4e;
+}
+
+html[data-theme="dark"] .stat-icon.red {
+  color: #ff8da0;
+  background-color: #482b38;
+  border-color: #70404f;
+}
+
+html[data-theme="dark"] .stat-icon.orange {
+  color: #ffc56b;
+  background-color: #45382a;
+  border-color: #695237;
+}
+
+html[data-theme="dark"] .sync-card {
+  color: var(--ink);
+  background-color: #1c2734;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .notice {
+  color: #f4d38d;
+  background-color: #39311f;
+  border-color: #65532c;
+}
+
+html[data-theme="dark"] .danger-text-button,
+html[data-theme="dark"] .delete-all-heading {
+  color: #ff9aab;
+}
+
+html[data-theme="dark"] .danger-button {
+  color: #fff;
+  background-color: #a72e47;
+}
+
+html[data-theme="dark"] .danger-button:hover {
+  background-color: #8f263d;
+}
+
+html[data-theme="dark"] .login-shell {
+  background: linear-gradient(135deg, #172130, #101720);
+}
+
+html[data-theme="dark"] .login-card label,
+html[data-theme="dark"] .modal label {
+  color: #c4cfdd;
+}
+
+html[data-theme="dark"] .login-card input,
+html[data-theme="dark"] .modal input,
+html[data-theme="dark"] .title-edit-form input {
+  color: var(--ink);
+  background-color: #111923;
+  border-color: #39485c;
+}
+
+html[data-theme="dark"] .login-card input::placeholder,
+html[data-theme="dark"] .modal input::placeholder {
+  color: #8897aa;
+}
+
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .footer {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .error-message {
+  color: #ff9aaa;
+}
