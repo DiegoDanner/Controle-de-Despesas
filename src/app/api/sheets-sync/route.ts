@@ -9,7 +9,7 @@ export async function POST() {
     if (authError || !user) return NextResponse.json({ error: "Não autenticado." }, { status: 401 });
 
     const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/^"|"$|'/g, "").replace(/\\n/g, "\n");
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
     if (!email || !privateKey || !spreadsheetId) {
       return NextResponse.json({ error: "Configure GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY e GOOGLE_SHEETS_SPREADSHEET_ID no .env.local e na Vercel." }, { status: 400 });

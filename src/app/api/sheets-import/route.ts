@@ -80,7 +80,7 @@ export async function POST() {
     }
 
     const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/^"|"$|'/g, "").replace(/\\n/g, "\n");
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
     if (!email || !privateKey || !spreadsheetId) {
       return NextResponse.json({ error: "Configure as credenciais do Google Sheets no ambiente." }, { status: 400 });
