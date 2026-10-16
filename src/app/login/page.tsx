@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { FileSpreadsheet, LockKeyhole, Moon, Sun } from "lucide-react";
+import { Eye, EyeOff, FileSpreadsheet, LockKeyhole, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/lib/theme";
 
 export default function LoginPage() {
   const { theme, toggleTheme } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const supabase = createClient();
@@ -28,7 +29,7 @@ export default function LoginPage() {
       <h1>Controle de Empréstimos</h1>
       <p className="muted">Sobrinha · Acesso restrito</p>
       <label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)} placeholder="voce@exemplo.com"/></label>
-      <label>Senha<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)} placeholder="Sua senha"/></label>
+      <label>Senha<div className="password-input-wrap"><input type={showPassword ? "text" : "password"} autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)} placeholder="Sua senha"/><button type="button" className="icon-button password-visibility-toggle" title={showPassword ? "Ocultar senha" : "Mostrar senha"} aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"} aria-pressed={showPassword} onClick={()=>setShowPassword(visible=>!visible)}>{showPassword ? <EyeOff size={17}/> : <Eye size={17}/>}</button></div></label>
       {message && <p className="error-message">{message}</p>}
       <button className="primary full" disabled={loading}>{loading ? "Entrando..." : <><LockKeyhole size={16}/> Entrar</>}</button>
       <p className="muted tiny">Crie o usuário inicial em Supabase → Authentication → Users.</p>
