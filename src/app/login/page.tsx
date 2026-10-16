@@ -1,6 +1,6 @@
- "use client";
+"use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { FileSpreadsheet, LockKeyhole, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/lib/theme";
@@ -11,10 +11,14 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const supabase = createClient();
+
+  const supabase = useMemo(() => {
+    try { return createClient(); } catch (e) { return null; }
+  }, []);
 
   async function signIn(e: React.FormEvent) {
     e.preventDefault(); setLoading(true); setMessage("");
+    if (!supabase) { setMessage("Erro interno."); setLoading(false); return; }
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) setMessage(`Falha no login: ${error.message}`);
     else window.location.href = "/";

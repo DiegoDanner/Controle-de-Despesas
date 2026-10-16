@@ -24,7 +24,6 @@ function parseCurrencyInput(value: string) {
 }
 
 export default function Dashboard() {
-  const supabase = createClient();
   const { theme, toggleTheme } = useTheme();
   const [userId, setUserId] = useState("");
   const [dashboardTitle, setDashboardTitle] = useState(DEFAULT_DASHBOARD_TITLE);
@@ -48,8 +47,13 @@ export default function Dashboard() {
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
 
+  const supabase = useMemo(() => {
+    try { return createClient(); } catch (e) { return null as any; }
+  }, []);
+
   async function load() {
     setLoading(true);
+    if (!supabase) { window.location.href = "/login"; return; }
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) { window.location.href = "/login"; return; }
     setUserId(user.id);
